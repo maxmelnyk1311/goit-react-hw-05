@@ -1,0 +1,20 @@
+.movieInfoWrp{
+    padding: 10px;
+}
+
+.backLinkBtn {
+    margin-bottom: 10px;
+}
+
+.movieInfoContainer {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid rgba(27, 27, 27, 0.3);
+}
+
+.moviePoster {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
