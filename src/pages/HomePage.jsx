@@ -25,7 +25,7 @@ export default function HomePage() {
             }
         }
         getData();
-    }, [movies])
+    }, [])
 
     return (
         <>  

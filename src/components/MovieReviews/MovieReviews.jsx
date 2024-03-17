@@ -24,7 +24,7 @@ export default function MovieReviews() {
             }
         }
         getData();
-    }, [reviews, movieId])
+    }, [movieId])
     
     return (
         <>

@@ -10,7 +10,6 @@ import ErrorMessage from "../components/ErrorMessage/ErrorMessage.jsx";
 
 export default function MoviesPage() {
     const [movies, setMovies] = useState(null);
-    const [query, setQuery] = useState("");
     const [params, setParams] = useSearchParams();
     // const [loading , setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -18,8 +17,6 @@ export default function MoviesPage() {
     function handleSearch(query) {
         params.set("query", query);
         setParams(params);
-        setQuery(query);
-        getMoviesByQuery(query);
     }
 
     useEffect(() => {
@@ -27,13 +24,8 @@ export default function MoviesPage() {
             try {
                 setError(false);
                 // setLoading(true);
-                let moviesByQuery;
                 const savedQuery = params.get("query");
-                if (savedQuery == null) {
-                    moviesByQuery = await getMoviesByQuery(query);
-                } else {
-                    moviesByQuery = await getMoviesByQuery(savedQuery);
-                }
+                const moviesByQuery = await getMoviesByQuery(savedQuery);
                 setMovies(moviesByQuery)
             } catch(error) {
                 setError(true);
@@ -42,7 +34,7 @@ export default function MoviesPage() {
             }
         }
         getData();
-    }, [query, movies, params])
+    }, [params])
 
     return (
         <>
